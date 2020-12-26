@@ -68,7 +68,7 @@
       <HintPath>packages\Lib.Harmony.2.0.2\lib\net45\0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp">
-      <HintPath>..\ksp\KSP_x64_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <HintPath>$(KSPDIR)\KSP_x64_Data\Managed\Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -79,17 +79,17 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="UnityEngine">
-      <HintPath>..\ksp\KSP_x64_Data\Managed\UnityEngine.dll</HintPath>
+      <HintPath>$(KSPDIR)\KSP_x64_Data\Managed\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\ksp\KSP_x64_Data\Managed\UnityEngine.AnimationModule.dll</HintPath>
+      <HintPath>$(KSPDIR)\KSP_x64_Data\Managed\UnityEngine.AnimationModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\ksp\KSP_x64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>$(KSPDIR)\KSP_x64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.IMGUIModule">
-      <HintPath>..\ksp\KSP_x64_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+      <HintPath>$(KSPDIR)\KSP_x64_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -104,8 +104,9 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>mkdir ..\..\..\ksp\GameData\LosslessPhysics\Plugins\
-copy $(TargetFileName) ..\..\..\ksp\GameData\LosslessPhysics\Plugins\
-copy $(TargetName).pdb ..\..\..\ksp\GameData\LosslessPhysics\Plugins\</PostBuildEvent>
+    <PostBuildEvent>mkdir "$(KSPDIR)\GameData\LosslessPhysics\Plugins\"
+copy 0Harmony.dll "$(KSPDIR)\GameData\LosslessPhysics\Plugins\"
+copy $(TargetFileName) "$(KSPDIR)\GameData\LosslessPhysics\Plugins\"
+copy $(TargetName).pdb "$(KSPDIR)\GameData\LosslessPhysics\Plugins\"</PostBuildEvent>
   </PropertyGroup>
 </Project>
